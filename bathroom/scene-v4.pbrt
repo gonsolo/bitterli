@@ -2,14 +2,14 @@ Integrator "path"
     "integer maxdepth" [ 17 ]
 Transform [ 0.659198 0.0116337 -0.751879 -0 -4.65661e-10 0.99988 0.015471 -0 -0.751969 0.0101985 -0.659119 -0 -0.175909 -0.910059 -0.158677 1  ]
 Sampler "sobol"
-    "integer pixelsamples" [ 64 ]
+    "integer pixelsamples" [ 8 ]
 PixelFilter "triangle"
     "float xradius" [ 1 ]
     "float yradius" [ 1 ]
 Film "rgb"
-    "string filename" [ "bathroom.png" ]
-    "integer yresolution" [ 1024 ]
-    "integer xresolution" [ 1024 ]
+    "string filename" [ "bathroom.exr" ]
+    "integer yresolution" [ 256 ]
+    "integer xresolution" [ 256 ]
 Camera "perspective"
     "float fov" [ 55 ]
 
