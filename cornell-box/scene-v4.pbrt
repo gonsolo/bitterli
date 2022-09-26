@@ -2,14 +2,16 @@ Integrator "path"
     "integer maxdepth" [ 65 ]
 Transform [ 1 -0 -0 -0 -0 1 -0 -0 -0 -0 -1 -0 -0 -1 6.8 1  ]
 Sampler "sobol"
-    "integer pixelsamples" [ 64 ]
+    "integer pixelsamples" [ 1 ] # gonzo [ 64 ]
 PixelFilter "triangle"
     "float xradius" [ 1 ]
     "float yradius" [ 1 ]
 Film "rgb"
-    "string filename" [ "cornell-box.png" ]
-    "integer yresolution" [ 1024 ]
-    "integer xresolution" [ 1024 ]
+    "string filename" [ "cornell-box.exr" ]
+    #"integer yresolution" [ 32 ] # gonzo [ 1024 ]
+    #"integer xresolution" [ 32 ] # gonzo [ 1024 ]
+    "integer yresolution" [ 512 ] # gonzo [ 1024 ]
+    "integer xresolution" [ 512 ] # gonzo [ 1024 ]
 Camera "perspective"
     "float fov" [ 19.5 ]
 
