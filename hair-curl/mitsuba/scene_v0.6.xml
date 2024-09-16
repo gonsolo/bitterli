@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.5.0" >
+	<integrator type="path" >
+		<integer name="maxDepth" value="65" />
+		<!-- <boolean name="strictNormals" value="true" /> -->
+	</integrator>
+	<sensor type="perspective" >
+		<float name="fov" value="35" />
+		<transform name="toWorld" >
+			<matrix value="-1 4.24672e-010 1.50958e-007 -0.055286 1.11022e-016 0.999996 -0.00281317 5.92976 -1.50959e-007 -0.00281317 -0.999996 17.0651 0 0 0 1"/>
+		</transform>
+		<!--
+		<sampler type="sobol" >
+			<integer name="sampleCount" value="64" />
+		</sampler>
+		-->
+		<film type="hdrfilm" >
+			<integer name="width" value="1200" />
+			<integer name="height" value="1000" />
+			<string name="fileFormat" value="openexr" />
+			<string name="pixelFormat" value="rgb" />
+			<!--
+			<float name="gamma" value="2.2" />
+			-->
+			<boolean name="banner" value="false" />
+			<rfilter type="tent" />
+		</film>
+	</sensor>
+	<bsdf type="roughplastic" id="black_hair" >
+		<float name="alpha" value="0.3" />
+		<string name="distribution" value="ggx" />
+		<float name="intIOR" value="1.55" />
+		<float name="extIOR" value="1" />
+		<boolean name="nonlinear" value="false" />
+		<rgb name="diffuseReflectance" value="6.344e-006, 7.62186e-012, 6.53751e-030"/>
+	</bsdf>
+	<bsdf type="roughplastic" id="red_hair" >
+		<float name="alpha" value="0.3" />
+		<string name="distribution" value="ggx" />
+		<float name="intIOR" value="1.55" />
+		<float name="extIOR" value="1" />
+		<boolean name="nonlinear" value="false" />
+		<rgb name="diffuseReflectance" value="0.0112431, 6.77287e-005, 1.13705e-011"/>
+	</bsdf>
+	<bsdf type="roughplastic" id="brown_hair" >
+		<float name="alpha" value="0.3" />
+		<string name="distribution" value="ggx" />
+		<float name="intIOR" value="1.55" />
+		<float name="extIOR" value="1" />
+		<boolean name="nonlinear" value="false" />
+		<rgb name="diffuseReflectance" value="0.143016, 0.0156076, 1.80928e-005"/>
+	</bsdf>
+	<bsdf type="roughplastic" id="blonde_hair" >
+		<float name="alpha" value="0.3" />
+		<string name="distribution" value="ggx" />
+		<float name="intIOR" value="1.55" />
+		<float name="extIOR" value="1" />
+		<boolean name="nonlinear" value="false" />
+		<rgb name="diffuseReflectance" value="0.592384, 0.32628, 0.0528657"/>
+	</bsdf>
+	<shape type="hair" >
+		<float name="radius" value="0.000444" />
+		<string name="filename" value="models/black_hair.mitshair" />
+		<ref id="black_hair" />
+	</shape>
+	<shape type="hair" >
+		<float name="radius" value="0.000444" />
+		<string name="filename" value="models/red_hair.mitshair" />
+		<ref id="red_hair" />
+	</shape>
+	<shape type="hair" >
+		<float name="radius" value="0.000444" />
+		<string name="filename" value="models/brown_hair.mitshair" />
+		<ref id="brown_hair" />
+	</shape>
+	<shape type="hair" >
+		<float name="radius" value="0.000444" />
+		<string name="filename" value="models/blonde_hair.mitshair" />
+		<ref id="blonde_hair" />
+	</shape>
+	<!--
+	<emitter type="sunsky" >
+		<float name="turbidity" value="3" />
+		<vector name="sunDirection" x="-0.376047" y="0.758426" z="0.532333" />
+		<float name="skyScale" value="5" />
+		<float name="sunScale" value="19.0912" />
+		<float name="sunRadiusScale" value="37.9165" />
+	</emitter>
+	-->
+</scene>

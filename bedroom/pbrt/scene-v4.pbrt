@@ -1,0 +1,391 @@
+Integrator "path"
+    "integer maxdepth" [ 65 ]
+Transform [ 0.653592 -0.0128556 -0.756738 -0 -9.31322e-10 0.999856 -0.0169858 -0 -0.756847 -0.0111018 -0.653498 -0 0.238273 -1.13121 4.79143 1  ]
+Sampler "sobol"
+    "integer pixelsamples" [ 64 ]
+PixelFilter "triangle"
+    "float xradius" [ 1 ]
+    "float yradius" [ 1 ]
+Film "rgb"
+    "string filename" [ "bedroom.exr" ]
+    "integer yresolution" [ 720 ]
+    "integer xresolution" [ 1280 ]
+Camera "perspective"
+    "float fov" [ 39.430485 ]
+
+
+WorldBegin
+
+Texture "Texture01" "spectrum" "imagemap"
+    "string filter" "trilinear"
+    "string filename" [ "textures/wallpaper-1.tga" ]
+Texture "Texture02" "spectrum" "imagemap"
+    "string filter" "trilinear"
+    "string filename" [ "textures/Teapot.tga" ]
+Texture "Texture03" "spectrum" "imagemap"
+    "string filter" "trilinear"
+    "string filename" [ "textures/wood4.tga" ]
+Texture "Texture04" "spectrum" "imagemap"
+    "string filter" "trilinear"
+    "string filename" [ "textures/panel-wood-3.tga" ]
+MakeNamedMaterial "Boxes"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.483044 0.384664 0.301561 ]
+MakeNamedMaterial "PlasticCable"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.558543 0.558543 0.558543 ]
+MakeNamedMaterial "LampEmitter"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.64 0.64 0.64 ]
+MakeNamedMaterial "Blankets"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.485435 0.456263 0.428075 ]
+MakeNamedMaterial "Bedsheets"
+    "string type" [ "diffuse" ]
+    "texture reflectance" [ "Texture01" ]
+MakeNamedMaterial "Window"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.028173 0.028173 0.028173 ]
+MakeNamedMaterial "PictureBacking"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.111567 0.037068 0.017016 ]
+MakeNamedMaterial "Picture"
+    "string type" [ "diffuse" ]
+    "texture reflectance" [ "Texture02" ]
+MakeNamedMaterial "Rocks1"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.350827 0.242986 0.17883 ]
+MakeNamedMaterial "Rocks2"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.098964 0.098964 0.098964 ]
+MakeNamedMaterial "Rocks3"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.558544 0.558544 0.558544 ]
+MakeNamedMaterial "DecoPlant"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.041772 0.011306 0.007575 ]
+MakeNamedMaterial "Painting"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.015396 0.015396 0.015396 ]
+MakeNamedMaterial "Carpet"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.034499 0.034499 0.034499 ]
+MakeNamedMaterial "Matress"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.893289 0.893289 0.893289 ]
+MakeNamedMaterial "WoodFloor"
+    "string type" [ "coateddiffuse" ]
+    "bool remaproughness" [ false ]
+    "float vroughness" [ 0.15 ]
+    "float uroughness" [ 0.15 ]
+    "texture reflectance" [ "Texture03" ]
+MakeNamedMaterial "Walls2"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.799999 0.799999 0.799999 ]
+MakeNamedMaterial "WoodFurniture"
+    "string type" [ "coateddiffuse" ]
+    "bool remaproughness" [ false ]
+    "float vroughness" [ 0.15 ]
+    "float uroughness" [ 0.15 ]
+    "texture reflectance" [ "Texture04" ]
+MakeNamedMaterial "Walls"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.799999 0.799999 0.799999 ]
+MakeNamedMaterial "Mirror"
+    "string type" [ "conductor" ]
+    "float roughness" [ 0 ]
+    "spectrum eta" [ "metal-Ag-eta" ]
+    "spectrum k" [ "metal-Ag-k" ]
+MakeNamedMaterial "Aluminium"
+    "string type" [ "conductor" ]
+    "float vroughness" [ 0.2 ]
+    "float uroughness" [ 0.2 ]
+    "bool remaproughness" [ false ]
+    "rgb k" [ 9.223869 6.269523 4.837001 ]
+    "rgb eta" [ 1.65746 0.880369 0.521229 ]
+MakeNamedMaterial "BookCover"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0 0 0 ]
+MakeNamedMaterial "BookPages"
+    "string type" [ "diffuse" ]
+    "rgb reflectance" [ 0.567027 0.567027 0.567027 ]
+MakeNamedMaterial "LampMetal"
+    "string type" [ "conductor" ]
+    "float vroughness" [ 0.1 ]
+    "float uroughness" [ 0.1 ]
+    "bool remaproughness" [ false ]
+    "rgb k" [ 9.223869 6.269523 4.837001 ]
+    "rgb eta" [ 1.65746 0.880369 0.521229 ]
+MakeNamedMaterial "LampGlass"
+    "string type" [ "dielectric" ]
+    "float eta" [ 1.5 ]
+    "float vroughness" [ 0.1 ]
+    "float uroughness" [ 0.1 ]
+    "bool remaproughness" [ false ]
+MakeNamedMaterial "PictureFrame"
+    "string type" [ "conductor" ]
+    "float vroughness" [ 0.1 ]
+    "float uroughness" [ 0.1 ]
+    "bool remaproughness" [ false ]
+    "rgb k" [ 9.223869 6.269523 4.837001 ]
+    "rgb eta" [ 1.65746 0.880369 0.521229 ]
+MakeNamedMaterial "Glass"
+    "string type" [ "dielectric" ]
+    "float eta" [ 1.5 ]
+    "bool remaproughness" [ false ]
+MakeNamedMaterial "Vase"
+    "string type" [ "dielectric" ]
+    "float eta" [ 1.5 ]
+    "bool remaproughness" [ false ]
+MakeNamedMaterial "Curtains"
+    "string type" [ "diffusetransmission" ]
+    "rgb reflectance" [ .45 .45 .45 ]
+    "rgb transmittance" [ .45 .45 .45 ]
+MakeNamedMaterial "CurtainRod"
+    "string type" [ "conductor" ]
+    "float vroughness" [ 0.1 ]
+    "float uroughness" [ 0.1 ]
+    "bool remaproughness" [ false ]
+    "rgb k" [ 9.223869 6.269523 4.837001 ]
+    "rgb eta" [ 1.65746 0.880369 0.521229 ]
+MakeNamedMaterial "StainlessSmooth"
+    "string type" [ "conductor" ]
+    "float roughness" [ 0 ]
+    "spectrum eta" [ "metal-Ag-eta" ]
+    "spectrum k" [ "metal-Ag-k" ]
+NamedMaterial "Aluminium"
+Shape "plymesh"
+    "string filename" [ "models/Mesh044.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh047.ply" ]
+NamedMaterial "WoodFurniture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh032.ply" ]
+NamedMaterial "StainlessSmooth"
+Shape "plymesh"
+    "string filename" [ "models/Mesh028.ply" ]
+NamedMaterial "Aluminium"
+Shape "plymesh"
+    "string filename" [ "models/Mesh046.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh027.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh022.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh042.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh036.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh043.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh040.ply" ]
+NamedMaterial "LampGlass"
+Shape "plymesh"
+    "string filename" [ "models/Mesh037.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh026.ply" ]
+NamedMaterial "LampMetal"
+Shape "plymesh"
+    "string filename" [ "models/Mesh023.ply" ]
+NamedMaterial "LampEmitter"
+Shape "plymesh"
+    "string filename" [ "models/Mesh059.ply" ]
+NamedMaterial "LampGlass"
+Shape "plymesh"
+    "string filename" [ "models/Mesh049.ply" ]
+NamedMaterial "WoodFloor"
+Shape "plymesh"
+    "string filename" [ "models/Mesh060.ply" ]
+NamedMaterial "DecoPlant"
+Shape "plymesh"
+    "string filename" [ "models/Mesh033.ply" ]
+NamedMaterial "Rocks1"
+Shape "plymesh"
+    "string filename" [ "models/Mesh025.ply" ]
+NamedMaterial "Rocks2"
+Shape "plymesh"
+    "string filename" [ "models/Mesh055.ply" ]
+NamedMaterial "Rocks3"
+Shape "plymesh"
+    "string filename" [ "models/Mesh035.ply" ]
+NamedMaterial "LampGlass"
+Shape "plymesh"
+    "string filename" [ "models/Mesh048.ply" ]
+NamedMaterial "LampMetal"
+Shape "plymesh"
+    "string filename" [ "models/Mesh056.ply" ]
+NamedMaterial "PlasticCable"
+Shape "plymesh"
+    "string filename" [ "models/Mesh058.ply" ]
+NamedMaterial "LampEmitter"
+Shape "plymesh"
+    "string filename" [ "models/Mesh061.ply" ]
+NamedMaterial "LampGlass"
+Shape "plymesh"
+    "string filename" [ "models/Mesh051.ply" ]
+NamedMaterial "LampMetal"
+Shape "plymesh"
+    "string filename" [ "models/Mesh066.ply" ]
+NamedMaterial "PlasticCable"
+Shape "plymesh"
+    "string filename" [ "models/Mesh062.ply" ]
+NamedMaterial "LampEmitter"
+Shape "plymesh"
+    "string filename" [ "models/Mesh054.ply" ]
+NamedMaterial "BookCover"
+Shape "plymesh"
+    "string filename" [ "models/Mesh063.ply" ]
+NamedMaterial "BookPages"
+Shape "plymesh"
+    "string filename" [ "models/Mesh064.ply" ]
+NamedMaterial "Curtains"
+Shape "plymesh"
+    "string filename" [ "models/Mesh057.ply" ]
+NamedMaterial "Bedsheets"
+Shape "plymesh"
+    "string filename" [ "models/Mesh041.ply" ]
+NamedMaterial "Glass"
+Shape "plymesh"
+    "string filename" [ "models/Mesh052.ply" ]
+NamedMaterial "Vase"
+Shape "plymesh"
+    "string filename" [ "models/Mesh065.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh067.ply" ]
+NamedMaterial "Bedsheets"
+Shape "plymesh"
+    "string filename" [ "models/Mesh068.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh034.ply" ]
+NamedMaterial "Matress"
+Shape "plymesh"
+    "string filename" [ "models/Mesh021.ply" ]
+NamedMaterial "Carpet"
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -0.441852 0 0 1  ]
+    Shape "plymesh"
+        "string filename" [ "models/Mesh020.ply" ]
+AttributeEnd
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -0.441852 0 0 1  ]
+    Shape "plymesh"
+        "string filename" [ "models/Mesh019.ply" ]
+AttributeEnd
+NamedMaterial "Painting"
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -0.11 0 0 1  ]
+    Shape "plymesh"
+        "string filename" [ "models/Mesh018.ply" ]
+AttributeEnd
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -0.235899 0 0 1  ]
+    Shape "plymesh"
+        "string filename" [ "models/Mesh017.ply" ]
+AttributeEnd
+NamedMaterial "CurtainRod"
+Shape "plymesh"
+    "string filename" [ "models/Mesh015.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh014.ply" ]
+NamedMaterial "WoodFurniture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh012.ply" ]
+NamedMaterial "Mirror"
+Shape "plymesh"
+    "string filename" [ "models/Mesh011.ply" ]
+NamedMaterial "Walls"
+Shape "plymesh"
+    "string filename" [ "models/Mesh013.ply" ]
+NamedMaterial "Window"
+Shape "plymesh"
+    "string filename" [ "models/Mesh039.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh010.ply" ]
+NamedMaterial "WoodFurniture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh031.ply" ]
+NamedMaterial "StainlessSmooth"
+Shape "plymesh"
+    "string filename" [ "models/Mesh045.ply" ]
+NamedMaterial "Mirror"
+Shape "plymesh"
+    "string filename" [ "models/Mesh038.ply" ]
+NamedMaterial "WoodFurniture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh009.ply" ]
+NamedMaterial "StainlessSmooth"
+Shape "plymesh"
+    "string filename" [ "models/Mesh024.ply" ]
+NamedMaterial "WoodFurniture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh030.ply" ]
+NamedMaterial "StainlessSmooth"
+Shape "plymesh"
+    "string filename" [ "models/Mesh029.ply" ]
+NamedMaterial "Walls2"
+Shape "plymesh"
+    "string filename" [ "models/Mesh008.ply" ]
+NamedMaterial "WoodFurniture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh007.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh006.ply" ]
+NamedMaterial "StainlessSmooth"
+Shape "plymesh"
+    "string filename" [ "models/Mesh005.ply" ]
+NamedMaterial "Curtains"
+Shape "plymesh"
+    "string filename" [ "models/Mesh004.ply" ]
+NamedMaterial "PictureFrame"
+Shape "plymesh"
+    "string filename" [ "models/Mesh050.ply" ]
+NamedMaterial "PictureBacking"
+Shape "plymesh"
+    "string filename" [ "models/Mesh053.ply" ]
+NamedMaterial "Picture"
+Shape "plymesh"
+    "string filename" [ "models/Mesh003.ply" ]
+NamedMaterial "Boxes"
+Shape "plymesh"
+    "string filename" [ "models/Mesh002.ply" ]
+NamedMaterial "Blankets"
+Shape "plymesh"
+    "string filename" [ "models/Mesh016.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh001.ply" ]
+Shape "plymesh"
+    "string filename" [ "models/Mesh000.ply" ]
+
+AttributeBegin
+    AreaLightSource "diffuse"
+        "rgb L" [ 16.4648 16.4648 16.4648 ]
+    Material "diffuse"
+        "rgb reflectance" [ 0 0 0 ]
+    Shape "trianglemesh"
+        "point2 uv" [ 0 0 1 0 1 1 0 1 
+            ]
+        "normal N" [ 0 1.15012e-7 1 0 1.15012e-7 1 0 1.15012e-7 1 0 1.15012e-7 1 ]
+        "point3 P" [ -2.00785 0.281886 -1.26735 -0.943027 0.281886 -1.26735 -0.943027 
+                     2.09747 -1.26735 -2.00785 2.09747 -1.26735 ]
+        "integer indices" [ 0 1 2 0 2 3 ]
+AttributeEnd
+
+AttributeBegin
+    AreaLightSource "diffuse"
+        "rgb L" [ 16.4648 16.4648 16.4648 ]
+    Material "diffuse"
+        "rgb reflectance" [ 0 0 0 ]
+    Shape "trianglemesh"
+        "point2 uv" [ 0 0 1 0 1 1 0 1 
+            ]
+        "normal N" [ 0 1.15012e-7 1 0 1.15012e-7 1 0 1.15012e-7 1 0 1.15012e-7 1 ]
+        "point3 P" [ 0.911384 0.281886 -1.26735 1.9762 0.281886 -1.26735 1.9762 2.09747 
+                     -1.26735 0.911384 2.09747 -1.26735 ]
+        "integer indices" [ 0 1 2 0 2 3 ]
+AttributeEnd
+NamedMaterial "Painting"
+AttributeBegin
+    Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -1.1021 0.0958043 0 1  ]
+    Shape "plymesh"
+        "string filename" [ "models/Mesh018.ply" ]
+AttributeEnd
