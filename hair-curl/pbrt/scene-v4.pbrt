@@ -1,0 +1,54 @@
+Integrator "path"
+"integer maxdepth" [ 65 ]
+Transform [ 1 4.24673e-10 1.50958e-7 -0 2.77556e-17 0.999996 -0.00281317 -0 1.50959e-7 -0.00281317 -0.999996 -0 0.0552834 -5.88173 17.0817 1  ]
+Sampler "sobol"
+    "integer pixelsamples" [ 1 ] # gonsolo: 64
+PixelFilter "triangle"
+    "float xradius" [ 1 ]
+    "float yradius" [ 1 ]
+Film "rgb"
+    "string filename" [ "hair-curl.exr" ]
+    #"integer yresolution" [ 128 ] # gonsolo 1000
+    #"integer xresolution" [ 192 ] # gonsolo 1200
+    "integer yresolution" [ 1000 ]
+    "integer xresolution" [ 1200 ]
+Camera "perspective"
+    "float fov" [ 29.443298 ]
+
+#Accelerator "bvh"
+
+WorldBegin
+
+MakeNamedMaterial "black_hair"
+    "string type" [ "hair" ]
+    "float eumelanin" [ 8 ]
+MakeNamedMaterial "red_hair"
+    "string type" [ "hair" ]
+    "float eumelanin" [ 2 ]
+MakeNamedMaterial "brown_hair"
+    "string type" [ "hair" ]
+    "float eumelanin" [ 0.8 ]
+MakeNamedMaterial "blonde_hair"
+    "string type" [ "hair" ]
+    "float eumelanin" [ 0.2 ]
+
+NamedMaterial "black_hair"
+#Import "models/black_hair.pbrt"
+NamedMaterial "red_hair"
+#Import "models/red_hair.pbrt"
+NamedMaterial "brown_hair"
+#Import "models/brown_hair.pbrt"
+NamedMaterial "blonde_hair"
+#Import "models/blonde_hair.pbrt"
+Import "models/blonde_one_hair.pbrt"
+
+LightSource "distant"
+    "rgb L" [ 19.091171 19.091171 19.091171 ]
+    "point3 to" [ 0 0 0 ]
+    "point3 from" [ -0.376047 0.758426 0.532333 ]
+AttributeBegin
+    Rotate 20 1 0 0
+    ConcatTransform [ -1 0 8.74228e-8 0 -8.74228e-8 0 -1 0 0 1 0 0 0 0 0 1  ]
+    LightSource "infinite"
+        "string filename" "textures/Skydome.pfm"
+AttributeEnd
